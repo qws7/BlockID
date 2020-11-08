@@ -1,0 +1,83 @@
+{
+    "name": "basic-network",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Student",
+        "connection": {
+            "timeout": {
+                "peer": {
+                    "endorser": "300"
+                },
+                "orderer": "300"
+            }
+        }
+    },
+    "channels": {
+        "channelstudent": {
+            "orderers": [
+                "orderer.blockid.com"
+            ],
+            "peers": {
+                "peer0.student.blockid.com": {}
+            }
+        }
+    },
+    "organizations": {
+        "Student": {
+            "mspid": "StudentOrg",
+            "peers": [
+                "peer0.student.blockid.com"
+            ],
+            "certificateAuthorities": [
+                "ca.student.blockid.com"
+            ],
+            "adminPrivateKey": {
+                "path": "../../basic-network/crypto-config/peerOrganizations/student.blockid.com/users/Admin@student.blockid.com/msp/keystore/6d44f45817edb53dec0a5744415714d6af5c54a0dd2844ca275b2d1498f3fc0e_sk"
+            },
+            "signedCert": {
+                "path": "../../basic-network/crypto-config/peerOrganizations/student.blockid.com/users/Admin@student.blockid.com/msp/signcerts/Admin@student.blockid.com-cert.pem"
+            }
+        }
+    },
+    "orderers": {
+        "orderer.blockid.com": {
+            "url": "grpc://localhost:7050",
+            "grpcOptions": {
+                "ssl-target-name-override": "orderer.blockid.com",
+                "grpc-max-send-message-length": -1
+            },
+            "tlsCACerts": {
+                "path": "../../basic-network/crypto-config/ordererOrganizations/blockid.com/orderers/orderer.blockid.com/msp/tlscacerts/tlsca.blockid.com-cert.pem"
+            }
+        }
+    },
+    "peers": {
+        "peer0.student.blockid.com": {
+            "url": "grpc://localhost:7051",
+            "tlsCACerts": {
+                "path": "../../basic-network/crypto-config/peerOrganizations/student.blockid.com/peers/peer0.student.blockid.com/msp/tlscacerts/tlsca.student.blockid.com-cert.pem"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "peer1.student.blockid.com",
+                "hostnameOverride": "peer1.student.blockid.com"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "ca.student.blockid.com": {
+            "url": "http://localhost:7054",
+            "caName": "ca.student.blockid.com",
+            "tlsCACerts": {
+                "path": "../../basic-network/crypto-config/peerOrganizations/student.blockid.com/ca/ca.student.blockid.com-cert.pem"
+            },
+            "registrar": {
+                "enrollId": "admin",
+                "enrollSecret": "adminpw",
+                "caName": "castudent"
+            },
+            "httpOptions": {
+                "verify": false
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+OrdererOrgs:
+    - Name: Orderer
+      Domain: blockid.com
+      Specs:
+          - Hostname: orderer
+
+PeerOrgs:
+    - Name: Student
+      Domain: student.blockid.com
+      Template:
+          Count: 2
+      Users:
+          Count: 1
+
+    - Name: University
+      Domain: university.blockid.com
+      Template:
+          Count: 2
+      Users:
+          Count: 1

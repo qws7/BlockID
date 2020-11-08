@@ -1,0 +1,24 @@
+version: "2"
+
+networks:
+  blockid:
+
+services:
+  ca.student.blockid.com:
+    image: hyperledger/fabric-ca
+    environment:
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_SERVER_CA_NAME=ca.student.blockid.com
+      - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.student.blockid.com-cert.pem
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/fbc2796f670a24c06e1f3b9b04cf94bd00a8690fb1c7906fb6eeebd980aad14f_sk
+    ports:
+      - "7054:7054"
+    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    volumes:
+      - ./crypto-config/peerOrganizations/student.blockid.com/ca/:/etc/hyperledger/fabric-ca-server-config
+    container_name: ca.student.blockid.com
+    networks:
+      - blockid
+    # affiliations:
+    #   student:
+    #     - department1
