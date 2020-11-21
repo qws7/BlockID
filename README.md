@@ -2,7 +2,8 @@
 
 # 영상
 
-https://www.youtube.com/watch?v=ZxT9aZcHqLU
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/ZxT9aZcHqLU/0.jpg)](https://www.youtube.com/watch?v=ZxT9aZcHqLU)
+
 
 <br>
 
