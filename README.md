@@ -1,5 +1,11 @@
 # [2020 한이음] BlockID_DID기반의 학생증 발급 서비스
 
+# 영상
+
+https://www.youtube.com/watch?v=ZxT9aZcHqLU
+
+<br>
+
 ## 시스템 구성도
 
 ![image](https://user-images.githubusercontent.com/65323733/98468331-604d3280-221d-11eb-8b79-39bd4f6b98f3.png)
